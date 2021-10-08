@@ -1,4 +1,9 @@
 {
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
+    },
     "devDependencies": {
         "@symfony/webpack-encore": "^1.0.0",
         "core-js": "^3.0.0",
