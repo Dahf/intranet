@@ -1,3 +1,26 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+app_index:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+app_chat:
+  path: /chat/{id}
+  controller: App\Controller\DefaultController::chat
+
+app_project:
+  path: /projects
+  controller: App\Controller\ProjectController::index
+
+app_api_chat_create:
+  path: /api/chat/create
+  controller: App\Controller\ChatController::create
+  methods: POST
+
+app_api_project_create:
+  path: /api/project/create
+  controller: App\Controller\ProjectController::create
+  methods: POST
+
+app_api_message_create:
+  path: /api/message/create
+  controller: App\Controller\ChatController::addMessage
+  methods: POST

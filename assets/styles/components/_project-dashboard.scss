@@ -1,0 +1,74 @@
+.project{
+    &-display{
+        height: 700px;
+        justify-content: space-between;
+        position: relative;
+    }
+    &-project{
+        height: 100%;
+        width: 100%;
+        background-color: var(--projects-section);
+        border-radius: 12px;
+        margin-right: 10%;
+        align-items: center;
+        flex-direction: column;
+        display: none;
+        &-header{
+            margin-top: 10px;
+        }
+    }
+    &-project.active{
+        display: flex;
+
+    }
+    &-list{
+        height: 100%;
+        width: 100%;
+        background-color: var(--projects-section);
+        border-radius: 12px;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    &-create{
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        &-form{
+            width: 100%;
+            height: 60%;
+            flex-direction: column;
+            justify-content: space-around;
+            &-list{
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                input,select{
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+    &-createOpenBtn{
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background: black;
+        border: none;
+        outline: none;
+        color: #FFF;
+        font-size: 36px;
+        transition: .3s;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    &-createOpenBtn.active{
+        transform: scale(1.1);
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg); 
+    }
+}

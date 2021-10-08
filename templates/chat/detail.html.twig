@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="wrapper">
+        <div class="chat-display flex">
+            <div class="last-contacts flex">
+                <div class="last-contacts-header flex">
+                    Active Conversations
+                    <span class="c-number">{{ chats|length }}</span>
+                    <svg class="list-header-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="feather feather-chevron-up" viewBox="0 0 24 24">
+                    <defs/>
+                    <path d="M18 15l-6-6-6 6"/>
+                    </svg>
+                </div>
+                
+                <div class="chat-list shadow">
+                    <ul class="chat-list-list flex">
+                        {% for chat in chats %}
+                        {% if user in chat.getUsers().toArray %}
+                       
+                        <li class="chat-list-item flex" data-path="{{ path('app_chat', { id: chat.getId }) }}">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
+                            <div class="chat-content">
+                            <div class="chat-header">
+                                {{ chatToUser.getUsername() }}
+                            </div>
+                            </div>
+                        </li>
+
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="chat shadow">
+                <div class="chat-top flex shadow" >
+                    <p>
+                    {{ chatToUser.getUsername() }}
+                    </p>
+                </div>
+                <div class="chat-messages">
+                 {% for message in chat.getMessages %}
+                    {% if message.getUserFrom() == app.user %}
+                    <div class="chat-message flex">
+                        <div class="chat-message-box">
+                            <span>
+                            {{ message.getContent() }}    
+                            </span>
+                        </div>
+                    </div>  
+                    {% else %}
+                    <div class="chat-message reverse flex">
+                         <div class="chat-message-box">
+                            <span>
+                            {{ message.getContent() }}    
+                            </span>
+                         </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                <form class="chat-input flex">
+                    <input type="text" class="chat-input-content flex" placeholder="Enter your message here" data-path="{{ path('app_api_message_create') }}"data-chatid="{{ chat.getId() }}" data-userid="{{ chatToUser.getId() }}" required>
+                    <button class="chat-send-btn">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
