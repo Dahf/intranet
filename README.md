@@ -93,7 +93,7 @@ This is how you can use my project
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Dahf/intranet.git
    ```
 2. Install via
    ```
