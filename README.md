@@ -152,7 +152,7 @@ Project Link: [https://github.com/Dahf/intranet](https://github.com/Dahf/intrane
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Dahf/intranet.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/Dahf/graphs/contributors
+[contributors-url]: https://github.com/Dahf/intranet/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Dahf/intranet.svg?style=for-the-badge
 [forks-url]: https://github.com/Dahf/intranet/network/members
 [stars-shield]: https://img.shields.io/github/stars/Dahf/intranet.svg?style=for-the-badge
