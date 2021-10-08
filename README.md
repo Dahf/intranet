@@ -141,7 +141,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/silasbck) - business@silasbeckmann.de
+Silas Beckmann - [@silasbck](https://twitter.com/silasbck) - business@silasbeckmann.de
 
 Project Link: [https://github.com/Dahf/intranet](https://github.com/Dahf/intranet)
 
