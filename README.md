@@ -160,5 +160,5 @@ Project Link: [https://github.com/Dahf/intranet](https://github.com/Dahf/intrane
 [issues-shield]: https://img.shields.io/github/issues/Dahf/intranet.svg?style=for-the-badge
 [issues-url]: https://github.com/Dahf/intranet/issues
 [license-shield]: https://img.shields.io/github/license/Dahf/intranet.svg?style=for-the-badge
-[license-url]: https://github.com/Dahf/intranet/blob/master/LICENSE.txt
+[license-url]: https://github.com/Dahf/intranet/blob/master/LICENSE
 [product-screenshot]: public/images/screen.png
