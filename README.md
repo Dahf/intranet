@@ -104,7 +104,7 @@ This is how you can use my project
    
    ```
    composer install
-   and
+   yarn install
    yarn watch
    ```
 4. Start the symfony server
