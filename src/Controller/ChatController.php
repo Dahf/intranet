@@ -39,11 +39,19 @@ class ChatController extends AbstractController
             throw $this->createNotFoundException();
         }
 
+<<<<<<< HEAD
         $chatsTo = $this->userRepository->find($userTo);
         $chatsFrom = $this->userRepository->find($user);
 
         foreach($chatsTo->getChats() as $chats){
             foreach($chatsFrom->getChats() as $chats2){
+=======
+        $chatsTo = $this->chatRepository->find($userToId);
+        $chatsFrom = $this->chatRepository->find($user->getId());
+
+        foreach($chatsTo as $chats){
+            foreach($chatsFrom as $chats2){
+>>>>>>> 9ce9310b159d96fdebc80fba2e8429bdfef2d0fd
                 if($chats === $chats2){
                     return new Response('already chat with that person', Response::HTTP_NOT_ACCEPTABLE);
                 }

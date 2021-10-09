@@ -86,6 +86,10 @@ This is how you can use my project
 
 * (<a href="https://symfony.com/download">symfony</a>)
 * (<a href="https://getcomposer.org/download/">composer</a>)
+<<<<<<< HEAD
+=======
+* (<a href="https://www.php.net/downloads/">php 7.3</a>)
+>>>>>>> 9ce9310b159d96fdebc80fba2e8429bdfef2d0fd
 * yarn
 ```npm install --global yarn```
 
@@ -103,7 +107,11 @@ This is how you can use my project
    
    ```
    composer install
+<<<<<<< HEAD
    and
+=======
+   yarn install
+>>>>>>> 9ce9310b159d96fdebc80fba2e8429bdfef2d0fd
    yarn watch
    ```
 4. Start the symfony server

@@ -59,6 +59,14 @@
         font-size: 36px;
         transition: .3s;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+<<<<<<< HEAD
+=======
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 10px;
+        margin-bottom: 10px;
+>>>>>>> 9ce9310b159d96fdebc80fba2e8429bdfef2d0fd
     }
     &-createOpenBtn.active{
         transform: scale(1.1);
