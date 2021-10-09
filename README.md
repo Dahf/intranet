@@ -86,6 +86,7 @@ This is how you can use my project
 
 * (<a href="https://symfony.com/download">symfony</a>)
 * (<a href="https://getcomposer.org/download/">composer</a>)
+* (<a href="https://www.php.net/downloads/">php 7.3</a>)
 * yarn
 ```npm install --global yarn```
 
