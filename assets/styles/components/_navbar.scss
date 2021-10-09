@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --app-container:#f3f6fd;
+  --main-color:#1f1c2e;
+  --secondary-color:#4a4a4a;
+  --link-color:#1f1c2e;
+  --link-color-hover:#c3cff4;
+  --link-color-active:#fff;
+  --link-color-active-bg:#1f1c2e;
+  --projects-section:#fff;
+  --message-box-hover:#fafcff;
+  --message-box-border:#e9ebf0;
+  --more-list-bg:#fff;
+  --more-list-bg-hover:#f6fbff;
+  --more-list-shadow:rgba(209, 209, 209, 0.2);
+  --button-bg:#1f1c24;
+  --search-area-bg:#fff;
+  --star:#1ff1c2e;
+  --message-btn:#fff;
+}
+
+.header{
+  padding: 30px 15%;
+}
+.navbar-container{
+  height: 120px;
+  background-color: var(--projects-section);
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    font-family: "Poppins";
+    text-decoration: none;
+    color: var(--main-color);
+  }
+}
+.menu-left{
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: .75rem;
+  a:hover{
+    color: var(--link-color-hover);
+  }
+  .active{
+    a{
+      color: var(--link-color-active-bg);
+    }
+  }
+}
+.beckmann{
+  margin-left: 2rem;
+  a{
+    font-size: 20px;
+    color: var(--link-color-active-bg);
+  }
+}
+.menu-right{
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  li:nth-child(1){
+    margin-right: 1rem;
+    margin-left: auto;
+  }
+  li:nth-child(2){
+    padding-left: 1rem;
+    border-left: 1px solid grey;
+  }
+  li:nth-child(3){
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .user-profile{
+    img{
+      width: 48px;
+      border-radius: 50%;
+      height: auto;
+    }
+  }
+}
+.dropdown-menu{
+  z-index: 5;
+  position: absolute;
+  margin-top: 3rem;
+  transition: ease-in 0.5s;
+  opacity: 0;
+  visibility: collapse;
+  pointer-events: visible;
+  &.show {
+    transform: translateY(1rem);
+    opacity: 1;
+    margin-left: 0;
+    visibility: visible;
+  }
+  .dropdown-list{
+    padding: 2rem 2rem 2rem 0;
+    list-style-type: none;
+
+    background-color: var(--projects-section);
+    border-radius: 10px;
+    li{
+      padding-top: 10px;
+      a{
+        margin-left: 1rem;
+        text-decoration: none;
+        color: var(--link-color);
+        svg{
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+
+.profile{
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}

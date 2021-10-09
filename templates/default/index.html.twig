@@ -1,0 +1,186 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="app-content">
+        <div class="projects-section shadow">
+            <div class="projects-section-header">
+                <p>Projects</p>
+                <p class="time">{{ "now"|date("F, d") }}</p>
+            </div>
+            <div class="projects-section-line">
+
+                <div class="projects-status">
+                    <div class="item-status">
+                        <span class="status-number">{{ count|length }}</span>
+                        <span class="status-type">In Progress</span>
+                    </div>
+                    <div class="item-status">
+                        <span class="status-number">{{ projects|length }}</span>
+                        <span class="status-type">Total Projects</span>
+                    </div>
+                </div>
+                <div class="view-actions">
+                    <button class="view-btn list-view" title="List View">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="8" y1="12" x2="21" y2="12" />
+                            <line x1="8" y1="18" x2="21" y2="18" />
+                            <line x1="3" y1="6" x2="3.01" y2="6" />
+                            <line x1="3" y1="12" x2="3.01" y2="12" />
+                            <line x1="3" y1="18" x2="3.01" y2="18" />
+                        </svg>
+                    </button>
+                    <button class="view-btn grid-view active" title="Grid View">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
+                            <rect x="3" y="3" width="7" height="7" />
+                            <rect x="14" y="3" width="7" height="7" />
+                            <rect x="14" y="14" width="7" height="7" />
+                            <rect x="3" y="14" width="7" height="7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="project-boxes jsGridView">
+                {% for project in projects %}
+                {% if user in project.getProjectMember().toArray %}
+                <div class="project-box-wrapper">
+                    <div class="project-box" style="background-color: #fee4cb;">
+                        <div class="project-box-header">
+                            <span>{{ project.getProjectTimeline()|date("F,d") }}</span>
+                            <div class="more-wrapper">
+                                <button class="project-btn-more">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                                        <circle cx="12" cy="12" r="1" />
+                                        <circle cx="12" cy="5" r="1" />
+                                        <circle cx="12" cy="19" r="1" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-box-content-header">
+                            <p class="box-content-header">{{ project.getProjectName() }}</p>
+                            <p class="box-content-subheader">{{ project.getProjectStatus() }}</p>
+                        </div>
+                        <div class="box-progress-wrapper">
+                            <p class="box-progress-header">Progress</p>
+                            <div class="box-progress-bar">
+                                <span class="box-progress" style="width: {{ project.getProjectProgress() }}%; background-color: #ff942e"></span>
+                            </div>
+                            <p class="box-progress-percentage">{{ project.getProjectProgress() }}%</p>
+                        </div>
+                        <div class="project-box-footer">
+                            <div class="participants">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="participant">
+                                <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="participant">
+                                <button class="add-participant" style="color: #ff942e;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="days-left" style="color: #ff942e;">
+                                {% set difference = date(project.getProjectTimeline()).diff(date("now")) %}
+                                {% set leftDays = difference.days %}
+                                {% if leftDays == 1 %}
+                                  1 day left
+                                {% else %}
+                                  {{ leftDays }} days left
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="messages-section shadow">
+            <button class="messages-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                </svg>
+            </button>
+            <div class="projects-section-header">
+                <p>Messenger</p>
+            </div>
+            <div class="messages">
+                {% for chat in chats %}
+                {% if user in chat.getUsers().toArray %}
+                {% for usersInChat in chat.getUsers()  %}
+                {% if usersInChat != app.user %}
+                <div class="message-box" data-path="{{ path('app_chat', { id: chat.getId }) }}">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
+                    <div class="message-content">
+                        <div class="message-header">
+                            <div class="name">{{ usersInChat.getUsername() }}</div>
+                            <div class="star-checkbox">
+                                <input type="checkbox" id="star-1">
+                                <label for="star-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <p class="message-line">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                        </p>
+                        <p class="message-line time">
+                            Dec, 12
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="online-section shadow">
+            {# <a href="{{ path('app_chat', { id: chat.getId }) }}"></a> #}
+
+            <div class="projects-section-header">
+                <p>Online</p>
+            </div>
+            <div class="onlines">
+                {% for user in users %}
+
+                {% if user.status != "Offline" and user != app.user %}
+                <div class="online-box" data-id="{{ user.getId }}" data-path="{{ path('app_api_chat_create') }}">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
+                    <div class="online-content">
+                        <div class="online-header">
+                            <div class="name">{{ user.getUsername }}</div>
+                            {% if user.getStatus == "Online" %}
+                            {% set color = '#A1FF00' %}
+                            {% elseif user.getStatus == "Away" %}
+                            {% set color = '#F28705' %}
+                            {% endif %}
+                            <div class="icon-status">
+                                <label for="">
+                                    <i class="fas fa-circle" style="color: transparent; border: 2px solid {{ color }}; border-radius: 50%;"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <p class="online-line">
+                            {{ user.getStatus }}
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

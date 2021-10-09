@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Noto Sans", sans-serif;
+    background: #0346f2;
+  }
+
+  .page-wrapper{
+      max-width: 1920px;
+      margin: 0 auto;
+  }
+  
+  .flex{
+      display: flex;
+  }
+  .shadow{
+    -webkit-box-shadow: 15px 15px 17px -21px rgba(0,0,0,0.55);
+    -moz-box-shadow: 15px 15px 17px -21px rgba(0,0,0,0.55);
+    box-shadow: 15px 15px 17px -21px rgba(0,0,0,0.55);
+  }
+  @import "components/navbar";
+  @import "components/projects";
+  @import "components/detail";
+  @import "components/footer";
+  @import "components/project-dashboard";
+  @import "login/login";
